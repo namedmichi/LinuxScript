@@ -1,6 +1,5 @@
-echo $(date "+%H:%M:%S")
-
 st=$(date "+%H")
+st=${st:1:1}
 min=$(date "+%M")
 
 x=$1
@@ -8,7 +7,14 @@ if  [ -z $x ]; then
     echo "gebe etwas Richtiges ein"
     exit 1
 fi
-str=$((x/60))
-minr=$((x%60))
 
-echo "Die zeit ist $((st+str)):$((min+minr))"
+timemin=$(( $st * 60 + $min ))
+timemin=$(( $timemin + $x ))
+
+st=$(( $timemin / 60 ))
+minutes=$(( $timemin % 60 ))
+
+
+
+echo "Alte uhrzeit: " $(date "+%H:%M:%S")
+echo "Neue Uhrzeit: " $st ":" $minutes
