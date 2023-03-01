@@ -10,9 +10,15 @@ fi
 timemin=$(( $st * 60 + $min ))
 timemin=$(( $timemin + $x ))
 
-st=$(( $timemin / 60 ))
-st=$(( $st % 24 ))
+st=$(( ($timemin / 60) % 24 ))
 min=$(( $timemin % 60 ))
 
-echo "Alte uhrzeit: " $(date "+%H:%M:%S")
-echo "Neue Uhrzeit: " $st ":" $min
+if [[ ${#st} -eq 1 ]]; then
+    min="0"$st
+fi
+if [[ ${#min} -eq 1 ]]; then
+    min="0"$min
+fi
+
+echo "Alte uhrzeit: " $(date "+%H:%M")
+echo "Neue Uhrzeit: " $st":"$min
