@@ -34,3 +34,4 @@ elif [  $a -eq $b ] || [  $c -eq $b ] || [  $a -eq $c ]; then
 else
     echo "Andersweitig"
 fi
+
