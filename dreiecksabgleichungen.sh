@@ -4,16 +4,18 @@ a=
 b=
 c=
 read -p "Geben sie Seite a ein: " a
-read -p "Geben sie Seite b ein: " b
-read -p "Geben sie Seite c ein: " c
 if  [ -z $a ]; then
     echo "gebe etwas Richtiges ein"
     exit 1
 fi
+
+read -p "Geben sie Seite b ein: " b
 if  [ -z $b ]; then
     echo "gebe etwas Richtiges ein"
     exit 1
 fi
+
+read -p "Geben sie Seite c ein: " c
 if  [ -z $c ]; then
     echo "gebe etwas Richtiges ein"
     exit 1
