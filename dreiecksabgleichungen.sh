@@ -19,6 +19,14 @@ if  [ -z $c ]; then
     exit 1
 fi
 
+if [[ $(($a + $b)) -ge $c ]] && [[ $(($c + $b)) -ge $a ]] && [[ $(($a + $c)) -ge $b ]];then
+    echo ""
+else
+    echo "Dreieck ist nicht möglich"
+    exit 1
+fi
+
+
 if [ $a -eq $b ] && [ $a -eq $c ]; then
     echo "Gleichseitig"
 elif [  $a -eq $b ] || [  $c -eq $b ] || [  $a -eq $c ]; then
