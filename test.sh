@@ -1,17 +1,16 @@
-#!/bin/bash -e
+#!/bin/bash
 
-N=
+echo "Geben Sie eine Anzahl von Minuten an, die von der aktuellen Zeit abgezogen oder addiert werden soll:"
+read minutes
 
-echo -n "Bitte zahl eingaben"
-read N
-
-if [ -z $N ]; then
-
-    echo "Fehler!"
-    exit 1
+# Überprüfen, ob die Eingabe eine Zahl ist
+if  [[ $minutes -lt 0 ]]; then
+    operation="-"
 else
-    echo "Die eingegebene Zahl ist: $N"
+    operation="+"   
 fi
-if [ $N -gt 23 ]; then
-    echo "$N ist ganz schön groß"
-fi
+
+# Berechnen der neuen Zeit
+new_time=$(date "+%Y-%m-%d %H:%M:%S" --date="$operation $minutes minutes")
+
+echo "Die neue Zeit ist: $new_time"
